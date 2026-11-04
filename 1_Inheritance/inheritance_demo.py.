@@ -1,0 +1,42 @@
+# Python OOP Concept: Inheritance
+# Author: PRAJITH J (26BCE1615)
+
+# Parent class
+class Animal:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def speak(self):
+        print(self.name, "makes a sound.")
+
+    def show_info(self):
+        print("Name:", self.name, "| Age:", self.age)
+
+
+# Child class 1 - inherits from Animal
+class Dog(Animal):
+    def __init__(self, name, age, breed):
+        super().__init__(name, age)   # calls the parent's __init__
+        self.breed = breed
+
+    def speak(self):                  # overrides the parent's method
+        print(self.name, "says Woof!")
+
+
+# Child class 2 - inherits from Animal
+class Cat(Animal):
+    def speak(self):
+        print(self.name, "says Meow!")
+
+
+# Creating objects
+dog1 = Dog("Bruno", 3, "Labrador")
+cat1 = Cat("Kitty", 2)
+
+dog1.show_info()   # method inherited from Animal
+dog1.speak()
+print("Breed:", dog1.breed)
+
+cat1.show_info()
+cat1.speak()
